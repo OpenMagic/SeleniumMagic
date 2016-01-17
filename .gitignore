@@ -1,0 +1,7 @@
+.vs/**/v*/
+bin/
+obj/
+packages/
+
+*.csproj.user
+*.feature.cs
