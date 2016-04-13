@@ -50,7 +50,7 @@ namespace SeleniumMagic.Specifications.Steps.PageObjects.UriFactory
         public void WhenICall_GetUri_TPageObject_Uri_currentUri()
         {
             var uriFactory = new SeleniumMagic.PageObjects.UriFactory();
-            var method = uriFactory.GetType().GetMethod("GetUri");
+            var method = uriFactory.GetType().GetMethod("GetUri", new[] {typeof(Uri)});
             var genericMethod = method.MakeGenericMethod(_given.TPageObject);
 
             _actual.Uri = genericMethod.Invoke(uriFactory, new object[] {new Uri(_given.Uri)}).ToString();

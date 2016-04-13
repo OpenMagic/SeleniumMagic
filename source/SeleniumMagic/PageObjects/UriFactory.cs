@@ -7,7 +7,12 @@ namespace SeleniumMagic.PageObjects
     {
         public Uri GetUri<TPageObject>(Uri currentUri)
         {
-            var fullName = typeof(TPageObject).FullName;
+            return GetUri(typeof(TPageObject), currentUri);
+        }
+
+        public Uri GetUri(Type pageObjectType, Uri currentUri)
+        {
+            var fullName = pageObjectType.FullName;
             var pageObjectsIndex = fullName.IndexOf(".PageObjects.", StringComparison.Ordinal);
 
             if (pageObjectsIndex < 0)

@@ -38,6 +38,9 @@ namespace SeleniumMagic.Specifications.Helpers
             A.CallTo(() => uriFactory.GetUri<Index>(A<Uri>.Ignored))
                 .ReturnsLazily((Uri currentUri) => new Uri($"{currentUri.Scheme}://{currentUri.Authority}/test"));
 
+            A.CallTo(() => uriFactory.GetUri(A<Type>.Ignored, A<Uri>.Ignored))
+                .ReturnsLazily((Type pageObjectType, Uri currentUri) => new Uri($"{currentUri.Scheme}://{currentUri.Authority}/test"));
+
             return uriFactory;
         }
     }
